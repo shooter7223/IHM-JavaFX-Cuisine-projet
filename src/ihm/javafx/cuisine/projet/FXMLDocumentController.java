@@ -7,10 +7,20 @@ package ihm.javafx.cuisine.projet;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Set;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.util.Callback;
 
 /**
  *
@@ -19,17 +29,27 @@ import javafx.scene.control.Label;
 public class FXMLDocumentController implements Initializable {
     
     @FXML
-    private Label label;
-    
+    //private Recette recette = new Recette();
+    private VBox ListRecette;
+    int i = 0;
+            
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+    private void creerRecetteBouton(ActionEvent event) {
+       i++;
+       String newRecette = "Nouvelle_recette";
+       Label label = new Label();
+       label.setText(newRecette);
+       label.setId(Integer.toString(i));
+       ListRecette.getChildren().add(label);
+       
+        
     }
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }  
+    
     
 }
