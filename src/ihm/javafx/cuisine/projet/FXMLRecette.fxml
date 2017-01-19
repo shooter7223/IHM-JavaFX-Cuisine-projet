@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -32,18 +33,24 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <ImageView fx:id="ImagePrincipale" fitHeight="192.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.rowSpan="2" />
+                  <ImageView fx:id="ImagePrincipale" fitHeight="171.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+                     <image>
+                        <Image fx:id="testImg" url="@../../../../../../../../Pictures/smallCookie.png" />
+                     </image></ImageView>
                   <TextArea fx:id="MaterielDisplay" prefHeight="190.0" prefWidth="155.0" text="Matériels" GridPane.columnIndex="2" GridPane.rowSpan="2" />
-                  <TextArea fx:id="IngredientDisplay" prefHeight="190.0" prefWidth="155.0" text="Ingrédients" GridPane.columnIndex="1" GridPane.rowSpan="2" />
+                  <TextArea fx:id="IngredientDisplay" editable="false" prefHeight="190.0" prefWidth="155.0" text="Ingrédients" GridPane.columnIndex="1" GridPane.rowSpan="2">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin></TextArea>
                   <TextArea fx:id="ListeDisplay" prefHeight="157.0" prefWidth="145.0" text="Listes" GridPane.columnIndex="3" />
                   <TextArea fx:id="TempsDisplay" prefHeight="38.0" prefWidth="144.0" text="Temps : " GridPane.columnIndex="3" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <ButtonBar prefHeight="40.0" prefWidth="607.0">
               <buttons>
-                  <Button fx:id="ModifRecetteButton" alignment="CENTER" mnemonicParsing="false" onAction="#modifRecette" text="Modifier la recette" textAlignment="CENTER" ButtonBar.buttonData="LEFT" />
-                 <Button fx:id="SupprRecetteButton" mnemonicParsing="false" text="Supprimer la recette" ButtonBar.buttonData="RIGHT" />
-                  <Button fx:id="saveRecetteButton" disable="true" mnemonicParsing="false" onAction="#saveRecette" text="Sauvegarder les modifications" visible="false" />
+                  <Button fx:id="modifRecetteButton" alignment="CENTER" mnemonicParsing="false" onAction="#modifRecette" text="Modifier la recette" textAlignment="CENTER" ButtonBar.buttonData="LEFT" />
+                 <Button fx:id="supprRecetteButton" mnemonicParsing="false" onAction="#supprRecette" text="Supprimer la recette" ButtonBar.buttonData="RIGHT" />
+                  <Button fx:id="saveRecetteButton" mnemonicParsing="false" onAction="#saveRecette" text="Sauvegarder les modifications" visible="false" />
               </buttons>
                <VBox.margin>
                   <Insets top="10.0" />
