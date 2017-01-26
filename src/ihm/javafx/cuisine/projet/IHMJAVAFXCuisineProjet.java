@@ -18,7 +18,7 @@ public class IHMJAVAFXCuisineProjet extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLRecette.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("FXMLRecette.fxml"));
         
         Scene scene = new Scene(root);
         
