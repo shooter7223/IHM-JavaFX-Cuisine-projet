@@ -47,7 +47,7 @@ public class ListRecette {
     
     public void ajouterRecette(Recette recette) {
         listeRecette.add(recette);
-        valeur.set(valeur.get() + recette.getRecette());
+        //valeur.set(valeur.get() + recette.getRecette());
     }
     
 }
