@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ihm.javafx.cuisine.projet;
+package ihm.javafx.cuisine.View;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,23 +13,25 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
 /**
+ * FXML Controller class
  *
- * @author thoma
+ * @author Elisabeth
  */
-public class FXMLDocumentController implements Initializable {
-    
+public class FXMLRecetteController implements Initializable {
+
+    /**
+     * Initializes the controller class.
+     */
     @FXML
-    private Label label;
-    
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
+    private void creerRecetteBouton(ActionEvent event) {
         System.out.println("You clicked me!");
-        label.setText("Hello World!");
+        
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }  
+    
     
 }
