@@ -5,49 +5,27 @@
  */
 package ihm.javafx.cuisine.model;
 
+import java.util.List;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ReadOnlyListProperty;
 import javafx.beans.property.ReadOnlyListWrapper;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import ihm.javafx.cuisine.model.Recette;
+import java.util.ArrayList;
 
 /**
  *
  * @author thoma
  */
 public class ListRecette {
-    private ReadOnlyListWrapper<Recette> listeRecette = new ReadOnlyListWrapper<>();
-    private final DoubleProperty valeur = new SimpleDoubleProperty();
+   public List<Recette> listR = new ArrayList<Recette>();
+  
     
     public ListRecette() {
-        ObservableList<Recette> list = FXCollections.observableArrayList();
-        listeRecette = new ReadOnlyListWrapper<>(list);
     }
     
-    public double getValeur() {
-        return valeur.get();
-    }
-
-    public void setValeur(double value) {
-        valeur.set(value);
-    }
-
-    public DoubleProperty valeurProperty() {
-        return valeur;
-    }
-    
-    public ObservableList getListeRecette() {
-        return listeRecette.get();
-    }
-
-    public ReadOnlyListProperty listeActionProperty() {
-        return listeRecette.getReadOnlyProperty();
-    }
-    
-    public void ajouterRecette(Recette recette) {
-        listeRecette.add(recette);
-        valeur.set(valeur.get() + recette.getRecette());
-    }
+   
     
 }

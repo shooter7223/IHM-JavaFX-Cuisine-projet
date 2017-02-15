@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ihm.javafx.cuisine.projet;
+package ihm.javafx.cuisine.View;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,8 +21,8 @@ import javafx.scene.image.Image;
  *
  * @author Elisabeth
  */
-public class FXMLRecetteController implements Initializable {
-
+public class FXMLRecetteController {
+    IHMJAVAFXCuisineProjet fenetre = new IHMJAVAFXCuisineProjet();//objet pour faire la liaison
     /**
      * Initializes the controller class.
     */
@@ -73,7 +73,7 @@ public class FXMLRecetteController implements Initializable {
     }
     
     @FXML
-    public void InitRecette(Recette r){
+    /*public void InitRecette(Recette r){
         IngredientDisplay.setText(r.getAllIngredients());
         MaterielDisplay.setText(r.getAllMateriels());
         ListeDisplay.setText(r.getAllListe());
@@ -81,22 +81,12 @@ public class FXMLRecetteController implements Initializable {
             Image pic = new Image("file:smallCookie.png");
             ImagePrincipale.setImage(pic);
         }
-    }
+    }*/
     
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    
+    public void initialize() {
         // TODO
-        List<String> ing = new ArrayList<String>();
-        List<String> mat = new ArrayList<String>();
-        List<String> lis = new ArrayList<String>();
-        ing.add("oeuf");
-        mat.add("spatule");
-        lis.add("dessert");
-        List<String> pic = new ArrayList<String>();
-        pic.add("file:smallCookie.png");
-        
-        Recette re = new Recette("cookie", ing, mat, lis, 30.5, pic);
-        InitRecette(re);
-    }    
+       
+    }  
     
 }

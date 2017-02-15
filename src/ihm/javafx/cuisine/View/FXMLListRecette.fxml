@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.javafx.cuisine.projet.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.javafx.cuisine.View.FXMLListRecetteController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <VBox layoutY="7.0" prefHeight="126.0" prefWidth="600.0">
@@ -39,7 +39,7 @@
             </GridPane>
          </children>
       </VBox>
-      <ListView layoutX="-1.0" layoutY="133.0" prefHeight="623.0" prefWidth="600.0" />
+      <ListView fx:id="listrecette" layoutX="-1.0" layoutY="133.0" prefHeight="623.0" prefWidth="600.0" />
       <Button layoutX="239.0" layoutY="756.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="123.0" text="Voir Recette" />
     </children>
 </AnchorPane>
