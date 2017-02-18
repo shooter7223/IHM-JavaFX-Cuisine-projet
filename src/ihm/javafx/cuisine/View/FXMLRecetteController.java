@@ -5,6 +5,8 @@
  */
 package ihm.javafx.cuisine.View;
 
+import ihm.javafx.cuisine.model.Recette;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,12 +40,17 @@ public class FXMLRecetteController {
     private Button modifRecetteButton;
     @FXML
     private Button saveRecetteButton;
+    @FXML private Button retourButton;
     @FXML
     private TextArea InstrucTextArea;
     @FXML
     private ImageView ImagePrincipale;
     @FXML
     private Image testImg;
+    @FXML private TextField nomField;
+    @FXML private TextField imgText;
+    
+    private boolean newRecette;
     
     @FXML
     public void modifRecette(ActionEvent e){
@@ -51,20 +58,48 @@ public class FXMLRecetteController {
         modifRecetteButton.setVisible(false);
         modifEdition(true);
     }
+    @FXML
+    public void retourButton(ActionEvent event) throws IOException {
+        FXMLListRecetteController.recetteActuelle = null;
+        fenetre.listRecette(event);
+    }
     
     @FXML
-    public void saveRecette(ActionEvent e){
+    public void saveRecette(ActionEvent event) throws IOException{
         modifRecetteButton.setVisible(true);
         saveRecetteButton.setVisible(false);
         modifEdition(false);
+        List<String> ing = new ArrayList<String>();
+        List<String> mat = new ArrayList<String>();
+        List<String> lis = new ArrayList<String>();
+        ing = ajoutListe(IngredientDisplay.getText().split(", "), ing);
+        mat = ajoutListe(MaterielDisplay.getText().split(", "), mat);
+        lis = ajoutListe(ListeDisplay.getText().split(", "), lis);
+        Recette r = new Recette(nomField.getText(), ing, mat, lis, TempsDisplay.getText(), imgText.getText(), InstrucTextArea.getText());
+        if(newRecette){
+            FXMLListRecetteController.ajoutRecette(r);
+            fenetre.listRecette(event);
+        }else{
+            FXMLListRecetteController.modifRecette(r);
+        }
+        
+    }
+    private List ajoutListe(String[] tabString, List<String> arrString){
+        for(int i = 0; i < tabString.length; i++){
+            arrString.add(tabString[i]);
+        }
+        return arrString;
     }
     
     @FXML
-    public void supprRecette(ActionEvent e){
-        //TODO
+    public void supprRecette(ActionEvent event) throws IOException{
+        FXMLListRecetteController.supprRecette();
+        fenetre.listRecette(event);
     }
     
     public void modifEdition(boolean bool){
+        nomField.setEditable(bool);
+        imgText.setEditable(bool);
         IngredientDisplay.setEditable(bool);
         InstrucTextArea.setEditable(bool);
         TempsDisplay.setEditable(bool);
@@ -73,20 +108,34 @@ public class FXMLRecetteController {
     }
     
     @FXML
-    /*public void InitRecette(Recette r){
+    public void InitRecette(Recette r){
+        nomField.setText(r.getNom());
+        TempsDisplay.setText(r.getDuree());
+        InstrucTextArea.setText(r.getInstructions());
         IngredientDisplay.setText(r.getAllIngredients());
         MaterielDisplay.setText(r.getAllMateriels());
         ListeDisplay.setText(r.getAllListe());
-        if(r.getPictures() != null){
-            Image pic = new Image("file:smallCookie.png");
+        if(r.getPicture() != null && !(r.getPicture().isEmpty())){
+            System.out.println("img");
+            imgText.setText(r.getPicture());
+            Image pic = new Image(r.getPicture());
             ImagePrincipale.setImage(pic);
         }
-    }*/
+    }
     
     
     public void initialize() {
         // TODO
-       
+       if(FXMLListRecetteController.recetteActuelle != null){
+           modifEdition(false);
+           InitRecette(FXMLListRecetteController.recetteActuelle);
+       }else{
+           saveRecetteButton.setVisible(true);
+           modifRecetteButton.setVisible(false);
+           nomField.setText("Entrez le nom");
+           modifEdition(true);
+           newRecette = true;
+       }
     }  
     
 }

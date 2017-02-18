@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.javafx.cuisine.View.FXMLRecetteController">
+    <children>
+      <VBox alignment="CENTER" layoutY="7.0" prefHeight="792.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane prefHeight="119.0" prefWidth="595.0" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fx:id="ImagePrincipale" fitHeight="171.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+                     <image>
+                        <Image fx:id="testImg" url="@../../../../../../../../Pictures/smallCookie.png" />
+                     </image></ImageView>
+                  <TextArea fx:id="MaterielDisplay" prefHeight="190.0" prefWidth="155.0" text="Matériels" GridPane.columnIndex="2" GridPane.rowSpan="2" />
+                  <TextArea fx:id="IngredientDisplay" editable="false" prefHeight="190.0" prefWidth="155.0" text="Ingrédients" GridPane.columnIndex="1" GridPane.rowSpan="2">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin></TextArea>
+                  <TextArea fx:id="ListeDisplay" prefHeight="157.0" prefWidth="145.0" text="Listes" GridPane.columnIndex="3" />
+                  <TextArea fx:id="TempsDisplay" prefHeight="38.0" prefWidth="144.0" text="Temps : " GridPane.columnIndex="3" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <ButtonBar prefHeight="40.0" prefWidth="607.0">
+              <buttons>
+                  <Button fx:id="modifRecetteButton" alignment="CENTER" mnemonicParsing="false" onAction="#modifRecette" text="Modifier la recette" textAlignment="CENTER" ButtonBar.buttonData="LEFT" />
+                 <Button fx:id="supprRecetteButton" mnemonicParsing="false" onAction="#supprRecette" text="Supprimer la recette" ButtonBar.buttonData="RIGHT" />
+                  <Button fx:id="saveRecetteButton" mnemonicParsing="false" onAction="#saveRecette" text="Sauvegarder les modifications" visible="false" />
+              </buttons>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </ButtonBar>
+            <SplitPane dividerPositions="0.5" prefHeight="554.0" prefWidth="600.0">
+              <items>
+                  <TilePane fx:id="InstrImagePane" prefHeight="200.0" prefWidth="200.0" />
+                  <TextArea fx:id="InstrucTextArea" prefHeight="365.0" prefWidth="296.0" />
+              </items>
+            </SplitPane>
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>
