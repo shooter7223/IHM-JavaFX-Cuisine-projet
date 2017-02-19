@@ -116,7 +116,6 @@ public class FXMLRecetteController {
         MaterielDisplay.setText(r.getAllMateriels());
         ListeDisplay.setText(r.getAllListe());
         if(r.getPicture() != null && !(r.getPicture().isEmpty())){
-            System.out.println("img");
             imgText.setText(r.getPicture());
             Image pic = new Image(r.getPicture());
             ImagePrincipale.setImage(pic);

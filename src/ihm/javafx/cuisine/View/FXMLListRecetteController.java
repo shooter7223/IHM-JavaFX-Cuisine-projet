@@ -132,7 +132,6 @@ public class FXMLListRecetteController  {
     
     @FXML
     private void listClick(MouseEvent event) throws IOException{
-        System.out.println("clicked on " + listrecette.getSelectionModel().getSelectedItem());
         String click = (String)listrecette.getSelectionModel().getSelectedItem();
         if(click != null){
             String[] clickSplit = click.split("\t\t");
@@ -140,7 +139,6 @@ public class FXMLListRecetteController  {
             for(Recette r : listR){
                 indice++;
                 if(r.getNom().equals(clickSplit[0])&&r.getDuree().equals(clickSplit[1])){
-                    System.out.println("ici");
                     recetteActuelle = r;
                     indiceRecetteAct = indice -1;
                 }
@@ -181,15 +179,20 @@ public class FXMLListRecetteController  {
             List<String> ing = new ArrayList<String>();
             List<String> mat = new ArrayList<String>();
             List<String> lis = new ArrayList<String>();
-            ing.add("Oeuf");
+            ing.add("Oeuf 4");
+            ing.add("Farine 90g");
+            ing.add("Sucre 150g");
+            ing.add("Chocolat 150g");
             mat.add("Spatule");
+            mat.add("Fouet");
             lis.add("Dessert");
+            lis.add("Gouter");
+            lis.add("Matin");
             listListe.addAll(lis);
-            System.out.println(listListe.size());
             String pic = "http://images.bigoven.com/image/upload/t_recipe-256/unbelievable-passover-chocolate-chi.jpg";
             String temps = "Temps : 30 minutes";
         
-            Recette r1 = new Recette("Cookie", ing, mat, lis, temps, pic, "Faire de la pate à cookie\nFaire cuire.");
+            Recette r1 = new Recette("Cookie", ing, mat, lis, temps, pic, "Extraire les jaunes d'oeufs\nMélanger tout\nFaire cuire 7 minutes au four à 180C.");
             listListe.add("Toutes");
             listListes.setItems(FXCollections.observableArrayList(listListe));
             listR.add(r1);

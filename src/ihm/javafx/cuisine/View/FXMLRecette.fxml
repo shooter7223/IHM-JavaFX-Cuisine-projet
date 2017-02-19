@@ -40,7 +40,7 @@
                      <image>
                         <Image fx:id="testImg" url="@../../../../../../../../Pictures/smallCookie.png" />
                      </image></ImageView>
-                  <TextArea fx:id="MaterielDisplay" prefHeight="190.0" prefWidth="155.0" text="Matériels : " GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+                  <TextArea fx:id="MaterielDisplay" prefHeight="190.0" prefWidth="155.0" text="Matériels : " wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
                      <GridPane.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </GridPane.margin></TextArea>
@@ -48,7 +48,7 @@
                      <GridPane.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </GridPane.margin></TextArea>
-                  <TextArea fx:id="ListeDisplay" prefHeight="157.0" prefWidth="145.0" text="Listes : " GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <TextArea fx:id="ListeDisplay" prefHeight="157.0" prefWidth="145.0" text="Listes : " wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets top="5.0" />
                      </GridPane.margin></TextArea>
