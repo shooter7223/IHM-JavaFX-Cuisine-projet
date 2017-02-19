@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 /**
  *
@@ -42,6 +44,11 @@ public class IHMJAVAFXCuisineProjet extends Application {
         Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
         load("FXMLRecette.fxml", stage);
     }
+    public void recette(MouseEvent e) throws IOException{
+        Stage stage = (Stage) ((ListView) e.getSource()).getScene().getWindow();
+        load("FXMLRecette.fxml", stage);
+    }
+    
    
     public static void main(String[] args) {
         launch(args);

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,10 +10,10 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.javafx.cuisine.View.FXMLListRecetteController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #e6ccb3;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.javafx.cuisine.View.FXMLListRecetteController">
     <children>
-        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <VBox layoutY="7.0" prefHeight="126.0" prefWidth="600.0">
          <children>
             <GridPane prefHeight="123.0" prefWidth="602.0">
@@ -28,18 +28,55 @@
                 <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="193.0" text="Recherche" GridPane.columnIndex="1" />
-                  <Button fx:id="creerRecette" mnemonicParsing="false" onAction="#creerRecetteBouton" prefHeight="25.0" prefWidth="191.0" text="Créer Recette" GridPane.columnIndex="2" />
-                  <TextField prefHeight="25.0" prefWidth="31.0" />
-                  <ComboBox prefHeight="25.0" prefWidth="200.0" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="258.0" text="Créer une liste" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0" text="Trier par nom" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="199.0" text="Trier par temps" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #d9d9d9; -fx-border-color: #333333;" text="Rechercher" textAlignment="CENTER" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="GraphiteStd-Regular" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="2.0" />
+                     </GridPane.margin></Button>
+                  <Button fx:id="creerRecette" mnemonicParsing="false" onAction="#creerRecetteBouton" prefHeight="25.0" prefWidth="191.0" style="-fx-background-color: #8cd98c; -fx-border-color: #333333;" text="Créer une nouvelle recette" textAlignment="CENTER" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="GraphiteStd-Regular" size="14.0" />
+                     </font></Button>
+                  <TextField fx:id="searchText" prefHeight="25.0" prefWidth="31.0">
+                     <font>
+                        <Font name="GraphiteStd-Regular" size="14.0" />
+                     </font></TextField>
+                  <ComboBox fx:id="listListes" prefHeight="25.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                  <Button fx:id="creerListeButton" mnemonicParsing="false" onAction="#creerListe" prefHeight="25.0" prefWidth="258.0" style="-fx-background-color: #8cd98c; -fx-border-color: #333333;" text="Créer une liste" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="GraphiteStd-Regular" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="2.0" />
+                     </GridPane.margin></Button>
+                  <Button mnemonicParsing="false" onAction="#trierNomBouton" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: #d9d9d9; -fx-border-color: #333333;" text="Trier par nom" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="GraphiteStd-Regular" size="14.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#trierTempsBouton" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: #d9d9d9; -fx-border-color: #333333;" text="Trier par temps" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="GraphiteStd-Regular" size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="2.0" />
+                     </GridPane.margin></Button>
+                  <TextField fx:id="creerListeText" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="GraphiteStd-Regular" size="14.0" />
+                     </font>
+                  </TextField>
                </children>
+               <VBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </VBox.margin>
             </GridPane>
          </children>
       </VBox>
-      <ListView fx:id="listrecette" layoutX="-1.0" layoutY="133.0" prefHeight="623.0" prefWidth="600.0" />
-      <Button layoutX="239.0" layoutY="756.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="123.0" text="Voir Recette" />
+      <ListView fx:id="listrecette" layoutX="13.0" layoutY="143.0" onMouseClicked="#listClick" prefHeight="653.0" prefWidth="571.0" />
     </children>
 </AnchorPane>
